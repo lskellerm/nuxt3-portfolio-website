@@ -17,6 +17,6 @@ export default defineNuxtConfig({
         wght: [400, 500, 600, 700]
       }
     },
-    display: 'fallback'
+    display: 'swap'
   }
 });
