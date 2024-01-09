@@ -1,5 +1,6 @@
 <template>
-  <AppHeader />
+  <div></div>
+  <!-- <AppHeader /> -->
 </template>
 <script setup lang="ts">
 definePageMeta({
