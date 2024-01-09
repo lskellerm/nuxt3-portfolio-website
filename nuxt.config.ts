@@ -6,7 +6,7 @@ export default defineNuxtConfig({
     strict: true
   },
   ui: {
-    icons: ['mingcute']
+    icons: ['mingcute', 'logos']
   },
   googleFonts: {
     families: {
