@@ -1,23 +1,47 @@
-# Nuxt 3 Minimal Starter
+![Logo](./public/logo-bw.svg)
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Personal Portfolio Website
 
-## Setup
+## Project Description
 
-Make sure to install the dependencies:
+This project is a personal portfolio website used to gain development exeperience using the Nuxt.js framework, as well as
+designed to showcase my skills and projects as a Software Engineer.
+
+## Technologies Used
+
+- Nuxt.js
+- TailwindCSS
+- NuxtUI
+- TypeScript
+- Iconify
+- devContainers
+
+## Build setup
+
+Below are the instructions to get the portfolio running on your local leveraging the VS code dev containers extension
+
+### Prerequisites
+
+- Visual Studio Code
+- Docker
+- devContainers extension
+
+1. **Clone the repository**
+   cd Nuxt-Portfolio
+
+2. **Open VS Code**
+
+- Open the clone repository in vscode.
+- If prompted, select re-open the folder in a devContainer, otherwise use the Command Palette `Ctrl+Shift+P` and search for 'Remote-Containers: Reopen in Container'
+
+3. **Install Dependencies**
+
+- The `postCreateCommand` in the `devContainer.json` file is set to run `yarn install` automatically after the container is created.
+- If for some reason you need to run it manually, you can open an integrated terminal in vs code and enter
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
+# # yarn
 yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,17 +49,10 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
 
 # yarn
 yarn dev
 
-# bun
-bun run dev
 ```
 
 ## Production
@@ -43,33 +60,20 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
 
 # yarn
 yarn build
 
-# bun
-bun run build
+
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
 
 # yarn
 yarn preview
 
-# bun
-bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
