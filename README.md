@@ -27,7 +27,8 @@ Below are the instructions to get the portfolio running on your local leveraging
 - devContainers extension
 
 1. **Clone the repository**
-   cd Nuxt-Portfolio
+
+- cd Nuxt-Portfolio
 
 2. **Open VS Code**
 
