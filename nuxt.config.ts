@@ -18,5 +18,6 @@ export default defineNuxtConfig({
       }
     },
     display: 'swap'
-  }
+  },
+  css: ['~/assets/css/main.css']
 });
