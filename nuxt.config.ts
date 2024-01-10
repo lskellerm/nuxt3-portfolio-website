@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/eslint-module', '@nuxt/ui', '@nuxtjs/google-fonts'],
+  modules: [
+    '@nuxtjs/eslint-module',
+    '@nuxt/ui',
+    '@nuxtjs/google-fonts',
+    '@nuxt/image'
+  ],
   typescript: {
     strict: true
   },
@@ -19,5 +24,16 @@ export default defineNuxtConfig({
     },
     display: 'swap'
   },
-  css: ['~/assets/css/main.css']
+  css: ['~/assets/css/main.css'],
+  image: {
+    screens: {
+      xs: 320,
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      xxl: 1536,
+      '2xl': 1536
+    }
+  }
 });
