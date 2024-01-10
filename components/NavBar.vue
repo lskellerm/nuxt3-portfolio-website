@@ -1,38 +1,33 @@
 <template>
   <div class="relative">
     <nav
-      class="bg-[#172121] px-2 py-2 lg:py-4 flex justify-between items-center"
+      id="navBar"
+      class="p-6 lg:px-10 xl:px-28 lg:p-4 flex justify-between items-center"
     >
-      <div class="flex ml-5 lg:ml-24 justify-between items w-full">
-        <nuxt-link to="/">
-          <img
-            height="65"
-            width="65"
-            src="/logo-bw.svg"
-            alt="logo"
-            class="lg:hidden"
-          />
+      <div class="flex justify-between items-center w-full lg:mr-10">
+        <nuxt-link class="flex items-center gap-2 shrink-0" to="/">
+          <img height="50" width="50" src="/logo-bw.svg" alt="logo" />
           <p
-            class="hidden lg:block text-3xl font-heading font-semibold text-[#E5D0CC]"
+            class="hidden lg:block text-xl xl:text-3xl font-heading font-semibold text-text"
           >
             Luis Kellermann
           </p>
         </nuxt-link>
         <UIcon
           name="i-mingcute-menu-fill"
-          class="mr-4 lg:hidden w-8 h-8 bg-[#BFACB5] self-center"
+          class="mr-4 lg:hidden w-8 h-8 bg-text self-center"
           @click="toggleMenu"
         />
       </div>
       <div
         v-if="!isMenuOpen"
-        class="hidden lg:flex justify-center gap-x-5 lg:mr-10 2xl:mr-32"
+        class="hidden lg:flex flex-end justify-center items-center gap-1 xl:gap-4"
       >
         <nuxt-link
           v-for="(link, index) in links"
           :key="index"
           :to="link.to"
-          class="text-white px-3 py-2 rounded text-lg font-heading font-semibold hover:text-[#E5D0CC] hover:bg-[#444554] text-center]"
+          class="p-2 rounded text-lg font-heading font-semibold hover:text-text hover:bg-accent text-center tracking-wider uppercase"
           >{{ link.label }}
         </nuxt-link>
       </div>
@@ -47,12 +42,12 @@
           :links="links"
           :ui="{
             strategy: 'override',
-            wrapper: 'relative border-0 h-screen bg-[#172121]',
+            wrapper: 'relative border-0 h-screen bg-text',
             rounded: 'rounded-none',
-            base: 'flex items-center ml-8 bg-[#172121]',
-            padding: 'p-6',
-            font: 'font-semibold font-heading',
-            active: 'border-current text-white',
+            base: 'flex flex-col items-start shrink-0 ml-2 bg-text',
+            padding: 'px-6 py-5',
+            font: 'text-lg text-background font-medium font-heading tracking uppercase',
+            active: 'border-current',
             size: 'text-xl'
           }"
         /></div
@@ -61,6 +56,8 @@
 </template>
 
 <script setup lang="ts">
+import type { VerticalNavigationLink } from '@nuxt/ui/dist/runtime/types';
+
 const isMenuOpen: Ref<boolean> = ref(false); // Reactive state for toggling menu on mobile
 
 const toggleMenu = () => {
@@ -70,7 +67,7 @@ const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
 };
 
-const links = [
+const links: VerticalNavigationLink[] = [
   {
     label: 'Home',
     to: '/'
@@ -95,6 +92,10 @@ const links = [
 </script>
 
 <style scoped>
+#navBar {
+  border-bottom: 2px solid rgba(149, 165, 167, 0.25);
+}
+
 .slide-over-enter-active,
 .slide-over-leave-active {
   transition: transform 0.3s ease;
