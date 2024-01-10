@@ -6,7 +6,7 @@
     >
       <div class="flex justify-between items-center w-full lg:mr-10">
         <nuxt-link class="flex items-center gap-2 shrink-0" to="/">
-          <img height="50" width="50" src="/logo-bw.svg" alt="logo" />
+          <NuxtImg src="/logo-bw.svg" height="50" width="50" alt="logo" />
           <p
             class="hidden lg:block text-xl xl:text-3xl font-heading font-semibold text-text"
           >
