@@ -1,4 +1,4 @@
-![Logo](./public/logo-bw.svg)
+![logo](./public/logo-bw.svg)
 
 # Personal Portfolio Website
 
@@ -18,7 +18,7 @@ designed to showcase my skills and projects as a Software Engineer.
 
 ## Build setup
 
-Below are the instructions to get the portfolio running on your local leveraging the VS code dev containers extension
+Below are the instructions to get the portfolio running on your local machine leveraging the vscode devContainers extension
 
 ### Prerequisites
 
@@ -27,10 +27,9 @@ Below are the instructions to get the portfolio running on your local leveraging
 - devContainers extension
 
 1. **Clone the repository**
+   cd Nuxt-Portfolio
 
-- cd Nuxt-Portfolio
-
-2. **Open VS Code**
+2. **Open vs code**
 
 - Open the clone repository in vscode.
 - If prompted, select re-open the folder in a devContainer, otherwise use the Command Palette `Ctrl+Shift+P` and search for 'Remote-Containers: Reopen in Container'
