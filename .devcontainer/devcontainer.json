@@ -11,11 +11,12 @@
   "customizations": {
     "vscode": {
       "extensions": [
-        "Codium.codium",
         "eamodio.gitlens",
         "Vue.volar",
         "esbenp.prettier-vscode",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "GitHub.copilot-chat",
+        "GitHub.copilot"
       ]
     }
   },

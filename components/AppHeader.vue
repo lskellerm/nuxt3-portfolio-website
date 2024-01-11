@@ -1,10 +1,15 @@
 <template>
-  <header class="flex justify-center items-center">
-    <div>
-      <h1 class="font-sans text-[#172121] text-3xl pt-16 mt-16">
-        Hello there 👋, I’m Luis Kellermann <br />I’m a Full Stack Software
-        Engineer
-      </h1>
-    </div>
-  </header>
+  <div class="flex flex-col justify-center items-start gap-3">
+    <NuxtImg
+      id="graduation-photo"
+      src="/graduation-photo.jpg"
+      alt="Graduation Photo"
+      quality="100"
+      class="rounded-full"
+      sizes="400px lg:609px"
+    />
+  </div>
+  <div class="flex flex-col">
+    <h4>Hello there! 👋 My name is Luis Kellermann I’m a Software Engineer</h4>
+  </div>
 </template>
