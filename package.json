@@ -35,6 +35,7 @@
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/mingcute": "^1.1.14",
     "@nuxt/image": "^1.1.0",
-    "@nuxt/ui": "^2.11.1"
+    "@nuxt/ui": "^2.11.1",
+    "vue-typewriter-effect": "^1.0.1"
   }
 }
