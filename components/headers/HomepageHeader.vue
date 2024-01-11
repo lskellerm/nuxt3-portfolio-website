@@ -35,7 +35,7 @@
       </p>
       <UButton
         id="about-me-button"
-        to="/about"
+        to="/#"
         size="xl"
         :ui="{
           strateg: 'override',
