@@ -1,4 +1,4 @@
-![logo](./public/logo-bw.svg)
+![logo](./public/favicon.ico)
 
 # Personal Portfolio Website
 
@@ -12,9 +12,11 @@ designed to showcase my skills and projects as a Software Engineer.
 - Nuxt.js
 - TailwindCSS
 - NuxtUI
+- Nuxt Image
 - TypeScript
 - Iconify
-- devContainers
+- Vue-Typewriter-Effect
+- Dev Containers
 
 ## Build setup
 
