@@ -1,5 +1,5 @@
 <template>
-  <AppHeader />
+  <HomepageHeader />
 </template>
 <script setup lang="ts">
 definePageMeta({

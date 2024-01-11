@@ -1,5 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  components: [
+    '~/components',
+    { path: '~/components/headers' },
+    { path: '~/components/base' }
+  ],
+
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/eslint-module',
