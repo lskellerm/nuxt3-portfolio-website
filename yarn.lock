@@ -548,6 +548,13 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.1.tgz#e5211452df060fa8522b55c7b3c0c4d1981cb044"
   integrity sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==
 
+"@iconify-json/fa6-brands@^1.1.18":
+  version "1.1.18"
+  resolved "https://registry.yarnpkg.com/@iconify-json/fa6-brands/-/fa6-brands-1.1.18.tgz#f950568d45b5b79e29b301c0b3537ebad8b02bbc"
+  integrity sha512-vmeJP06Xbj0XbVGiBHg0q8H3M894d4bGXKCmiHt6JqUdpiGcIV7r96N+BOU4ZS1+hvpV57fTfXlFPiUfxAIfkg==
+  dependencies:
+    "@iconify/types" "*"
+
 "@iconify-json/heroicons@^1.1.15":
   version "1.1.19"
   resolved "https://registry.yarnpkg.com/@iconify-json/heroicons/-/heroicons-1.1.19.tgz#55e4c5fcbe8bc0bab0ff62eefc832ae65c0dae96"

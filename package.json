@@ -32,6 +32,7 @@
     "vue-tsc": "^1.8.27"
   },
   "dependencies": {
+    "@iconify-json/fa6-brands": "^1.1.18",
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/mingcute": "^1.1.14",
     "@nuxt/image": "^1.1.0",
