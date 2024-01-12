@@ -1,6 +1,6 @@
 <template>
-  <div
-    class="fixed left-0 bottom-0 flex flex-col bg-text justify-center items-start md:items-center w-full h-1/6 lg:h-1/5 p-4 lg:py-26 gap-y-5 lg:px-10 2xl:px-32"
+  <footer
+    class="flex flex-col bg-text justify-center items-start md:items-center w-full h-1/6 lg:h-1/5 p-4 lg:py-26 gap-y-5 lg:px-10 2xl:px-32"
   >
     <LazyUDivider
       :ui="{
@@ -94,7 +94,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script setup lang="ts">
