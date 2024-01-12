@@ -34,8 +34,7 @@
         user experiences.
       </p>
       <UButton
-        id="about-me-button"
-        to="/#"
+        to="/about"
         size="xl"
         :ui="{
           strateg: 'override',
@@ -62,6 +61,7 @@
 <script setup lang="ts">
 import VueTypewriterEffect from 'vue-typewriter-effect';
 
+// Roles roles for the typewriter effect component
 const roles: String[] = [
   'Front-End Developer',
   'Back-End Developer',
