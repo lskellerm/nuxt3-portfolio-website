@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NavBar />
+    <AppNavBar />
     <header>
       <slot />
     </header>

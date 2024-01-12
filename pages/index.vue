@@ -1,9 +1,11 @@
 <template>
-  <HomepageHeader />
+  <NuxtLayout name="landing">
+    <HomepageHeader />
+  </NuxtLayout>
 </template>
 <script setup lang="ts">
 definePageMeta({
-  layout: 'landing'
+  layout: false
 });
 
 useServerSeoMeta({
