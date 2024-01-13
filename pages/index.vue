@@ -1,7 +1,9 @@
 <template>
-  <NuxtLayout name="landing">
-    <HomepageHeader />
-  </NuxtLayout>
+  <div>
+    <NuxtLayout name="landing">
+      <HomepageHeader />
+    </NuxtLayout>
+  </div>
 </template>
 <script setup lang="ts">
 definePageMeta({
