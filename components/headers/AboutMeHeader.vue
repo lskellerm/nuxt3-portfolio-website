@@ -22,28 +22,26 @@
           >
             Currently Working With:
           </h2>
-          <ClientOnly>
-            <div
-              data-aos="fade-up"
-              data-aos-once="true"
-              class="flex justify-center items-center gap-x-20 px-10"
-            >
-              <ul class="list-disc mr-7">
-                <li class="font-sans text-md">TypeScript</li>
-                <li class="font-sans text-md">JavaScript</li>
-                <li class="font-sans text-md">TailwindCSS</li>
-                <li class="font-sans text-md">Flask</li>
-                <li class="font-sans text-md">Python</li>
-              </ul>
-              <ul class="list-disc">
-                <li class="font-sans text-md">Vue</li>
-                <li class="font-sans text-md">Nuxt</li>
-                <li class="font-sans text-md">Docker</li>
-                <li class="font-sans text-md">Linux</li>
-                <li class="font-sans text-md">AWS</li>
-              </ul>
-            </div>
-          </ClientOnly>
+          <div
+            data-aos="fade-up"
+            data-aos-once="true"
+            class="flex justify-center items-center gap-x-20 px-10"
+          >
+            <ul class="list-disc mr-7">
+              <li class="font-sans text-md">TypeScript</li>
+              <li class="font-sans text-md">JavaScript</li>
+              <li class="font-sans text-md">TailwindCSS</li>
+              <li class="font-sans text-md">Flask</li>
+              <li class="font-sans text-md">Python</li>
+            </ul>
+            <ul class="list-disc">
+              <li class="font-sans text-md">Vue</li>
+              <li class="font-sans text-md">Nuxt</li>
+              <li class="font-sans text-md">Docker</li>
+              <li class="font-sans text-md">Linux</li>
+              <li class="font-sans text-md">AWS</li>
+            </ul>
+          </div>
         </div>
         <div class="flex justify-center items-center gap-x-4">
           <UIcon name="i-fa6-brands-linkedin" class="w-12 h-12 bg-text" />

@@ -24,23 +24,14 @@
           :auto-start="true"
         />
       </h1>
-      <ClientOnly
-        fallback-tag="p"
-        fallback="I’m a software engineer based in Raleigh, NC specializing in building
-          Full-Stack applications, transforming complex problems into elegant
-          solutions. I aim to bring to life robust web applications that enhance
-          user experiences."
+      <p
+        class="font-sans text-center lg:text-left mb-6 xl:w-3/4 lg:text-lg xl:text-xl"
       >
-        <p
-          data-aos="fade-up"
-          class="font-sans text-center lg:text-left mb-6 xl:w-3/4 lg:text-lg xl:text-xl"
-        >
-          I’m a software engineer based in Raleigh, NC specializing in building
-          Full-Stack applications, transforming complex problems into elegant
-          solutions. I aim to bring to life robust web applications that enhance
-          user experiences.
-        </p>
-      </ClientOnly>
+        I’m a software engineer based in Raleigh, NC specializing in building
+        Full-Stack applications, transforming complex problems into elegant
+        solutions. I aim to bring to life robust web applications that enhance
+        user experiences.
+      </p>
       <UButton
         to="/about"
         size="xl"
