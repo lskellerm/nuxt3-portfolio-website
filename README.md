@@ -13,6 +13,7 @@ designed to showcase my skills and projects as a Software Engineer.
 - TailwindCSS
 - NuxtUI
 - Nuxt Image
+- Nuxt Aos
 - TypeScript
 - Iconify
 - Vue-Typewriter-Effect

@@ -3,7 +3,6 @@
     class="flex flex-col lg:flex-row-reverse justify-center items-center gap-8 mt-5 p-6 lg:p-16"
   >
     <NuxtImg
-      id="graduation-photo"
       src="/graduation-photo.jpg"
       alt="Graduation Photo"
       quality="100"
@@ -13,7 +12,7 @@
     <div
       class="flex flex-col justify-center items-center lg:items-start gap-y-6 w-full xl:w-1/2 2xl:w-1/4"
     >
-      <h4 class="text-text font-heading text-2xl lg:text-3xl">
+      <h1 class="text-text font-heading text-2xl lg:text-3xl">
         Hello there! 👋 My name is <br />
         <span class="text-3xl lg:text-4xl font-bold">Luis Kellermann </span
         ><br />
@@ -24,15 +23,24 @@
           class="text-accent"
           :auto-start="true"
         />
-      </h4>
-      <p
-        class="font-sans text-center lg:text-left mb-6 xl:w-3/4 lg:text-lg xl:text-xl"
+      </h1>
+      <ClientOnly
+        fallback-tag="p"
+        fallback="I’m a software engineer based in Raleigh, NC specializing in building
+          Full-Stack applications, transforming complex problems into elegant
+          solutions. I aim to bring to life robust web applications that enhance
+          user experiences."
       >
-        I’m a software engineer based in Raleigh, NC specializing in building
-        Full-Stack applications, transforming complex problems into elegant
-        solutions. I aim to bring to life robust web applications that enhance
-        user experiences.
-      </p>
+        <p
+          data-aos="fade-up"
+          class="font-sans text-center lg:text-left mb-6 xl:w-3/4 lg:text-lg xl:text-xl"
+        >
+          I’m a software engineer based in Raleigh, NC specializing in building
+          Full-Stack applications, transforming complex problems into elegant
+          solutions. I aim to bring to life robust web applications that enhance
+          user experiences.
+        </p>
+      </ClientOnly>
       <UButton
         to="/about"
         size="xl"

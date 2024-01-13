@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="flex flex-col bg-text justify-center items-start md:items-center w-full h-1/6 lg:h-1/5 p-4 lg:py-26 gap-y-5 lg:px-10 2xl:px-32"
+    class="fixed bottom-0 left-0 z-20 flex flex-col bg-text justify-center items-start md:items-center w-full h-1/6 lg:h-1/5 p-4 lg:py-26 gap-y-5 lg:px-10 2xl:px-32"
   >
     <LazyUDivider
       :ui="{
@@ -8,7 +8,7 @@
         border: {
           base: 'border-background',
           size: {
-            horizontal: 'border-t-2 lg:mt-5'
+            horizontal: 'border-t-2 mt-5'
           }
         }
       }"

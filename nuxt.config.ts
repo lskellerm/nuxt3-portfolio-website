@@ -11,7 +11,8 @@ export default defineNuxtConfig({
     '@nuxtjs/eslint-module',
     '@nuxt/ui',
     '@nuxtjs/google-fonts',
-    '@nuxt/image'
+    '@nuxt/image',
+    'nuxt-aos'
   ],
   typescript: {
     strict: true
