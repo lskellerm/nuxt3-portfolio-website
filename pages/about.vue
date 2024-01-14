@@ -1,16 +1,7 @@
 <template>
-  <div>
+  <div class="lg:flex lg:flex-row justify-center items-start h-screen lg:pt-16">
     <AboutMeHeader />
-    <div class="relative px-4">
-      <div class="absolute inset-0 flex items-center justify-center">
-        <NuxtImg
-          src="/headshot-bw-removed.png"
-          alt="Headshot Photo No Background"
-          quality="100"
-          class="rounded-full"
-          sizes="400"
-        />
-      </div>
+    <!-- <div class="relative px-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="377"
@@ -27,6 +18,14 @@
           fill-opacity="0.1"
         />
       </svg>
-    </div>
+      <div class="absolute inset-0 flex justify-center items-center"></div>
+    </div> -->
+    <NuxtImg
+      src="/headshot-bw-removed.png"
+      alt="Headshot Photo No Background"
+      quality="100"
+      class="rounded-full lg:p-10"
+      sizes="400 lg:600px xl:700px"
+    />
   </div>
 </template>
