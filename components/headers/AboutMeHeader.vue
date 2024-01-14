@@ -1,9 +1,11 @@
 <template>
-  <div class="flex flex-col justify-center items-center mt-5 gap-y-6">
-    <div class="flex flex-col items-center w-full px-3 py-7 gap-y-3">
-      <div class="flex flex-col items-start gap-y-10 px-5">
-        <h1 class="font-heading font-bold text-3xl">Who am I?</h1>
-        <p class="font-sans text-md">
+  <div
+    class="flex flex-col justify-center items-center py-10 px-2 gap-y-6 lg:w-full"
+  >
+    <div class="flex flex-col items-center w-full lg:w-3/4 px-3 py-7 gap-y-3">
+      <div class="flex flex-col items-start gap-y-10 px-5 lg:px-0">
+        <h1 class="font-heading font-bold text-3xl lg:text-5xl">Who am I?</h1>
+        <p class="font-sans text-md lg:text-xl">
           Hi there! Welcome to my portfolio website! <br />
           I’m a Software Engineer with a Bachelor’s of Science in Computer
           Science with a concentration in Systems from UNCW. <br /><br />
@@ -16,7 +18,7 @@
           frameworks, you can find me traveling, finding that new coffee shop,
           excercising, cooking or reading a new book!
         </p>
-        <div class="flex flex-col items-start gap-y-4">
+        <div class="flex flex-col items-start gap-y-4 lg:mt-8">
           <h2
             class="text-accent font-heading text-xl uppercase tracking-wide font-semibold"
           >
@@ -28,18 +30,22 @@
             class="flex justify-center items-center gap-x-20 px-10"
           >
             <ul class="list-disc mr-7">
-              <li class="font-sans text-md">TypeScript</li>
-              <li class="font-sans text-md">JavaScript</li>
-              <li class="font-sans text-md">TailwindCSS</li>
-              <li class="font-sans text-md">Flask</li>
-              <li class="font-sans text-md">Python</li>
+              <li
+                v-for="(item, index) in currentWorkingList"
+                :key="index"
+                class="font-sans text-md lg:text-lg"
+              >
+                {{ item }}
+              </li>
             </ul>
             <ul class="list-disc">
-              <li class="font-sans text-md">Vue</li>
-              <li class="font-sans text-md">Nuxt</li>
-              <li class="font-sans text-md">Docker</li>
-              <li class="font-sans text-md">Linux</li>
-              <li class="font-sans text-md">AWS</li>
+              <li
+                v-for="(item, index) in otherWorkingList"
+                :key="index"
+                class="font-sans text-md lg:text-lg"
+              >
+                {{ item }}
+              </li>
             </ul>
           </div>
         </div>
@@ -51,3 +57,16 @@
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+// Constants of technologies I'm currently working with
+const currentWorkingList: String[] = [
+  'TypeScript',
+  'JavaScript',
+  'TailwindCSS',
+  'Flask',
+  'Python'
+];
+
+const otherWorkingList: String[] = ['Vue', 'Nuxt', 'Docker', 'Linux', 'AWS'];
+</script>
