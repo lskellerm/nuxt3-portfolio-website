@@ -1,6 +1,6 @@
 <template>
-  <div class="lg:flex lg:flex-row justify-center items-start h-screen lg:pt-16">
-    <AboutMeHeader />
+  <div class="lg:flex justify-center 2xl:justify-start items-start h-screen">
+    <AboutMeHeader class="2xl:basis" />
     <!-- <div class="relative px-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -20,12 +20,26 @@
       </svg>
       <div class="absolute inset-0 flex justify-center items-center"></div>
     </div> -->
+
     <NuxtImg
       src="/headshot-bw-removed.png"
       alt="Headshot Photo No Background"
       quality="100"
-      class="rounded-full lg:p-10"
-      sizes="400 lg:600px xl:700px"
+      class="rounded-full lg:p-10 lg:mt-5 2xl:basis-1/4"
+      sizes="400 lg:625px"
     />
   </div>
 </template>
+
+<script setup lang="ts">
+useServerSeoMeta({
+  title: 'About Me | Luis Kellermann',
+  ogTitle: 'About Me | Luis Kellermann',
+  description:
+    'This is my personal Portfolio Website. I’m a software engineer based in Raleigh, NC specializing in building Full-Stack applications, transforming complex problems into elegant solutions. Currently working with Vue, Nuxt, Python, and AWS.',
+  ogDescription:
+    'This is my personal Portfolio Website. I’m a software engineer based in Raleigh, NC specializing in building Full-Stack applications, transforming complex problems into elegant solutions. Currently working with Vue, Nuxt, Python, and AWS.',
+  ogImage: 'https://luis-kellermann.com/favicon.ico',
+  robots: 'index, follow'
+});
+</script>
