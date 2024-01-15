@@ -18,7 +18,7 @@
         class="flex justify-center items-center p-2 lg:px-16 gap-x-4 md:gap-x-20 lg:gap-x-20 2xl:gap-x-96"
       >
         <NuxtImg
-          src="/logo-bw.svg"
+          src="/logo-bw.jpg"
           height="50"
           width="50"
           alt="logo"

@@ -3,7 +3,7 @@
     class="flex flex-col lg:flex-row-reverse justify-center items-center gap-8 mt-5 p-6 lg:p-16"
   >
     <NuxtImg
-      src="/graduation-photo.jpg"
+      src="/logo-bw.jpg"
       alt="Graduation Photo"
       quality="100"
       class="rounded-full"
