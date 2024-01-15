@@ -1,0 +1,30 @@
+name: ci_cd_workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  # Build and run tests (linters, prettier, unit tests, etc.)
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20.11.0
+      - name: Install dependencies
+        run: yarn install
+      - name: Lint
+        run: yarn lint
+      - name: Check Formatting
+        run: yarn format:check
+
+      # - name: Test
+      #   run: yarn test
+
+      - name: Build
+        run: yarn build
