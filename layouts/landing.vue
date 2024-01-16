@@ -1,8 +1,10 @@
 <template>
   <div>
     <AppNavBar />
-    <header>
-      <slot />
-    </header>
+    <main>
+      <header>
+        <slot />
+      </header>
+    </main>
   </div>
 </template>
