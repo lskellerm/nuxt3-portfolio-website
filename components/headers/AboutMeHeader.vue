@@ -1,5 +1,5 @@
 <template>
-  <div
+  <header
     class="flex flex-col justify-center items-center py-10 px-2 gap-y-6 lg:w-full 2xl:w-3/5"
   >
     <div
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">

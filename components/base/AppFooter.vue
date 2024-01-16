@@ -145,7 +145,7 @@ const links: { label: string; to: string }[] = [
   },
   {
     label: 'Skills',
-    to: '/#'
+    to: '/skills'
   },
   {
     label: 'Projects',

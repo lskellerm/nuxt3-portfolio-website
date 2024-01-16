@@ -112,7 +112,7 @@ const links: VerticalNavigationLink[] = [
   },
   {
     label: 'Skills',
-    to: '/#'
+    to: '/skills'
   },
   {
     label: 'Projects',

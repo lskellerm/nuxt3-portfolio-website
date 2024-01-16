@@ -1,5 +1,5 @@
 <template>
-  <div
+  <header
     class="flex flex-col lg:flex-row-reverse justify-center items-center gap-8 mt-5 p-6 lg:p-16"
   >
     <NuxtImg
@@ -54,7 +54,7 @@
         >Get to know me</UButton
       >
     </div>
-  </div>
+  </header>
 </template>
 
 <script setup lang="ts">
