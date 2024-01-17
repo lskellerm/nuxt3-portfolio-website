@@ -54,8 +54,12 @@
           </div>
         </div>
         <div class="flex justify-center items-center gap-x-4">
-          <UIcon name="i-fa6-brands-linkedin" class="w-12 h-12 bg-text" />
-          <UIcon name="i-fa6-brands-github" class="w-12 h-12 bg-text" />
+          <a href="https://www.linkedin.com/in/luis-kellermann/">
+            <UIcon name="i-fa6-brands-linkedin" class="w-12 h-12 bg-text" />
+          </a>
+          <a href="https://github.com/lskellerm">
+            <UIcon name="i-fa6-brands-github" class="w-12 h-12 bg-text" />
+          </a>
         </div>
       </div>
     </div>
