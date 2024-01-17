@@ -3,7 +3,7 @@
     class="flex flex-col justify-center items-center py-10 px-2 gap-y-6 lg:w-full 2xl:w-3/5"
   >
     <div
-      class="flex flex-col justify-center items-center w-full lg:w-3/4 2xl:w-1/2 py-7 gap-y-3"
+      class="flex flex-col justify-center items-center w-full lg:w-4/5 2xl:w-1/2 py-7 gap-y-3"
     >
       <div
         class="flex flex-col justify-center items-start gap-y-10 px-5 lg:px-0"
