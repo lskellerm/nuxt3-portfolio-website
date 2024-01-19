@@ -17,8 +17,10 @@
       }"
       @change="handleTabChange"
     />
+
     <transition-group
-      name="card"
+      :key="activeTab"
+      name="fade"
       tag="div"
       class="grid grid-cols-2 lg:grid-cols-3 gap-5 w-full"
     >
@@ -113,23 +115,19 @@ const skillsToShow = computed(() => {
 </script>
 
 <style scoped>
-/* Transition group styling for the skill cards */
-.card-enter-active,
-.card-leave-active {
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
+/* Fade transition for the skill cards */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
 }
 
-.card-enter-from,
-.card-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
-  transform: translateY(20px);
 }
 
-.card-enter-to,
-.card-leave-from {
+.fade-enter-to,
+.fade-leave-from {
   opacity: 1;
-  transform: translateY(0);
 }
 </style>
