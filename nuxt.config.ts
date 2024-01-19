@@ -3,7 +3,9 @@ export default defineNuxtConfig({
   components: [
     '~/components',
     { path: '~/components/headers' },
-    { path: '~/components/base' }
+    { path: '~/components/base' },
+    { path: '~/components/sections' },
+    { path: '~/components/cards' }
   ],
 
   devtools: { enabled: true },
