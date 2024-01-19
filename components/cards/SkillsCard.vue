@@ -40,5 +40,14 @@ const props = defineProps<{
   box-shadow:
     0px 10px 10px -5px rgba(149, 165, 167, 0.04),
     0px 20px 25px -5px #95a5a7;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+#skills-card:hover {
+  box-shadow:
+    0 0 15px 5px rgba(255, 255, 255, 0.6),
+    /* White glow */ 0 0 20px 10px #00b893; /* Blue glow */
+  transform: scale(1.05); /* Slightly increase the size */
 }
 </style>

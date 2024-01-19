@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col lg:w-3/5 gap-y-6">
+  <section class="flex flex-col gap-y-6">
     <UTabs
       :items="items"
       :ui="{
@@ -20,7 +20,7 @@
     <transition-group
       name="card"
       tag="div"
-      class="grid grid-cols-2 lg:grid-cols-3 gap-5"
+      class="grid grid-cols-2 lg:grid-cols-3 gap-5 w-full"
     >
       <SkillsCard
         v-for="skill in skillsToShow"
