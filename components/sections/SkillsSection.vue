@@ -99,7 +99,7 @@ const handleTabChange = (index: number) => {
   activeTab.value = index;
 };
 
-//  Comnputed property to decide which skill cards to render based on the active tab
+//  Computed property to decide which skill cards to render based on the active tab
 const skillsToShow = computed(() => {
   switch (activeTab.value) {
     case 0:
