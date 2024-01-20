@@ -84,6 +84,7 @@
             active: 'border-current',
             size: 'text-xl'
           }"
+          @click="toggleMenu"
         /></div
     ></transition>
   </div>
