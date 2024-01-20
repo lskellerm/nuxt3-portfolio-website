@@ -150,7 +150,7 @@ const links: { label: string; to: string }[] = [
   },
   {
     label: 'Projects',
-    to: '/#'
+    to: '/projects'
   },
   {
     label: 'Contact',
