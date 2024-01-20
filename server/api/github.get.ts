@@ -16,7 +16,7 @@ type repoData = {
   name: string;
   description: string | null;
   html_url: string;
-  language: string | null | undefined;
+  technologies: (string | null | undefined)[];
 };
 
 // Define the parameters for the request
@@ -33,13 +33,30 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
     );
 
     // Transform the response to only include the data needed for the project cards
-    const extracedRepoData: repoData[] = reposResponse.data.map((repo) => ({
+    const extractedRepoData: repoData[] = reposResponse.data.map((repo) => ({
       name: repo.name,
       description: repo.description,
       html_url: repo.html_url,
-      language: repo.language
+      technologies: repo.name.includes('Coffee-Supply')
+        ? ['PHP, MariaDB', 'JavaScript', 'AJAX']
+        : repo.name.includes('nuxt3-portfolio')
+          ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS']
+          : repo.name.includes('kpi')
+            ? ['Java', 'JavaFX', 'SceneBuilder']
+            : repo.name.includes('team7')
+              ? [
+                  'JavaScript',
+                  'Python',
+                  'Flask',
+                  'Vue',
+                  'Vuetify',
+                  'PostgreSQL',
+                  'TailwindCSS',
+                  'AWS'
+                ]
+              : [repo.language]
     }));
-    return extracedRepoData;
+    return extractedRepoData;
   } catch (err) {
     // Return the error if the request to the GitHub API fails
     throw createError({
