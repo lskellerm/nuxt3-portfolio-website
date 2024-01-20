@@ -40,7 +40,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
       technologies: repo.name.includes('Coffee-Supply')
         ? ['PHP, MariaDB', 'JavaScript', 'AJAX']
         : repo.name.includes('nuxt3-portfolio')
-          ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS']
+          ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
           : repo.name.includes('kpi')
             ? ['Java', 'JavaFX', 'SceneBuilder']
             : repo.name.includes('team7')
@@ -56,6 +56,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
                 ]
               : [repo.language]
     }));
+
     return extractedRepoData;
   } catch (err) {
     // Return the error if the request to the GitHub API fails
