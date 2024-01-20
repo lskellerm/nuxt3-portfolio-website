@@ -38,7 +38,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
       description: repo.description,
       html_url: repo.html_url,
       technologies: repo.name.includes('Coffee-Supply')
-        ? ['PHP, MariaDB', 'JavaScript', 'AJAX']
+        ? ['PHP', 'MariaDB', 'JavaScript', 'AJAX']
         : repo.name.includes('nuxt3-portfolio')
           ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
           : repo.name.includes('kpi')
