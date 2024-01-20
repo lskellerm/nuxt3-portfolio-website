@@ -18,6 +18,7 @@ designed to showcase my skills and projects as a Software Engineer.
 - Iconify
 - Vue-Typewriter-Effect
 - Dev Containers
+- OcktoKit
 
 ## Build setup
 
