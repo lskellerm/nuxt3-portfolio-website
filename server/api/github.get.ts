@@ -3,14 +3,12 @@ import { Endpoints } from '@octokit/types';
 
 // Create an instance of Octokit with my GitHub token
 const octokit: Octokit = new Octokit({
-  auth: process.env.GITHUB_TOKEN
+  auth: process.env.GITHUB_ACCESS_TOKEN
 });
 
 // Get the parameter and response types from the GitHub API
-type getRepobyOwnerParams =
-  Endpoints['GET /users/{username}/repos']['parameters'];
-type getRepoByOwnerResponse =
-  Endpoints['GET /users/{username}/repos']['response'];
+type getRepoForAuthedUserParams = Endpoints['GET /user/repos']['parameters'];
+type getRepoForAuthedUserResponse = Endpoints['GET /user/repos']['response'];
 
 type repoData = {
   name: string;
@@ -20,42 +18,56 @@ type repoData = {
 };
 
 // Define the parameters for the request
-const params: getRepobyOwnerParams = {
-  username: 'lskellerm'
+const params: getRepoForAuthedUserParams = {
+  visibility: 'all',
+  affiliation: 'owner',
+  sort: 'created'
 };
 
 export default defineEventHandler(async (): Promise<repoData[]> => {
   try {
     // Retrieve the list of repos from the GitHub API
-    const reposResponse: getRepoByOwnerResponse = await octokit.request(
-      'GET /users/{username}/repos',
-      params
+    const reposResponse: getRepoForAuthedUserResponse = await octokit.request(
+      'GET /user/repos',
+      {
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28'
+        },
+        ...params
+      }
     );
 
     // Transform the response to only include the data needed for the project cards
-    const extractedRepoData: repoData[] = reposResponse.data.map((repo) => ({
-      name: repo.name,
-      description: repo.description,
-      html_url: repo.html_url,
-      technologies: repo.name.includes('Coffee-Supply')
-        ? ['PHP', 'MariaDB', 'JavaScript', 'AJAX']
-        : repo.name.includes('nuxt3-portfolio')
-          ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
-          : repo.name.includes('kpi')
-            ? ['Java', 'JavaFX', 'SceneBuilder']
-            : repo.name.includes('team7')
-              ? [
-                  'JavaScript',
-                  'Python',
-                  'Flask',
-                  'Vue',
-                  'Vuetify',
-                  'PostgreSQL',
-                  'TailwindCSS',
-                  'AWS'
-                ]
-              : [repo.language]
-    }));
+    const extractedRepoData: repoData[] = reposResponse.data
+      .filter((repo) => repo.name !== 'padas-vue' && !repo.name.includes('DSA'))
+      .map((repo) => ({
+        name:
+          repo.name === 'padas-flask'
+            ? 'Padas'
+            : repo.name === 'kpi dashboard'
+              ? 'KPI Dashboard'
+              : repo.name,
+        description: repo.description,
+        html_url: repo.html_url,
+        technologies: repo.name.includes('Coffee-Supply')
+          ? ['PHP', 'MariaDB', 'JavaScript', 'AJAX']
+          : repo.name.includes('nuxt3-portfolio')
+            ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
+            : repo.name.includes('kpi')
+              ? ['Java', 'JavaFX', 'SceneBuilder']
+              : repo.name.includes('padas')
+                ? [
+                    'JavaScript',
+                    'Python',
+                    'Flask',
+                    'Vue',
+                    'Vuetify',
+                    'PostgreSQL',
+                    'TailwindCSS',
+                    'AWS'
+                  ]
+                : [repo.language]
+      }));
 
     return extractedRepoData;
   } catch (err) {
