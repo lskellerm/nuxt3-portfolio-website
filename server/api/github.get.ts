@@ -46,7 +46,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
             ? 'Padas'
             : repo.name === 'kpi dashboard'
               ? 'KPI Dashboard'
-              : repo.name,
+              : repo.name.replace(/-/g, ' '),
         description: repo.description,
         html_url: repo.html_url,
         technologies: repo.name.includes('Coffee-Supply')
