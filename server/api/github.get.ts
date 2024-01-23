@@ -74,7 +74,8 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
     // Return the error if the request to the GitHub API fails
     throw createError({
       statusCode: 500,
-      statusMessage: 'Internal Server Error, unable to fetch repos from GitHub'
+      statusMessage:
+        'Internal Server Error, unable to fetch repos from GitHub\n' + err
     });
   }
 });
