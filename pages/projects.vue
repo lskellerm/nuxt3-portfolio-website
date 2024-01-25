@@ -16,4 +16,5 @@ useServerSeoMeta({
   ogImage: 'https://luis-kellermann.com/favicon.ico',
   robots: 'index, follow'
 });
+//
 </script>
