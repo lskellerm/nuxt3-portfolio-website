@@ -28,7 +28,7 @@ Below are the instructions to get the portfolio running on your local machine le
 
 - Visual Studio Code
 - Docker
-- devContainers extension
+- Dev Containers extension
 
 1. **Clone the repository**
    cd Nuxt-Portfolio
