@@ -20,5 +20,4 @@ import type { repoData } from '~/server/api/github.get';
 const { data } = await useAsyncData<repoData[]>('repos', () =>
   $fetch('/api/github')
 );
-console.log(data.value);
 </script>
