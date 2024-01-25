@@ -23,7 +23,6 @@ const params: getRepoForAuthedUserParams = {
   affiliation: 'owner',
   sort: 'created'
 };
-console.log(process.env.GITHUB_ACCESS_TOKEN);
 
 export default defineEventHandler(async (): Promise<repoData[]> => {
   try {
