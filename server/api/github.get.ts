@@ -1,9 +1,11 @@
 import { Octokit } from 'octokit';
 import { Endpoints } from '@octokit/types';
 
+const { githubAccessToken } = useRuntimeConfig();
+
 // Create an instance of Octokit with my GitHub token
 const octokit: Octokit = new Octokit({
-  auth: process.env.GITHUB_ACCESS_TOKEN
+  auth: githubAccessToken
 });
 
 // Get the parameter and response types from the GitHub API

@@ -44,5 +44,8 @@ export default defineNuxtConfig({
       xxl: 1536,
       '2xl': 1536
     }
+  },
+  runtimeConfig: {
+    githubAccessToken: ''
   }
 });
