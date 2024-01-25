@@ -23,6 +23,7 @@ const params: getRepoForAuthedUserParams = {
   affiliation: 'owner',
   sort: 'created'
 };
+console.log(process.env.GITHUB_ACCESS_TOKEN);
 
 export default defineEventHandler(async (): Promise<repoData[]> => {
   try {
@@ -36,7 +37,6 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
         ...params
       }
     );
-    console.log(process.env.GITHUB_ACCESS_TOKEN);
     // Transform the response to only include the data needed for the project cards
     const extractedRepoData: repoData[] = reposResponse.data
       .filter((repo) => repo.name !== 'padas-vue' && !repo.name.includes('DSA'))
