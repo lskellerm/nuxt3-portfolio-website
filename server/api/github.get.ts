@@ -1,5 +1,5 @@
 import { Octokit } from 'octokit';
-import { Endpoints } from '@octokit/types';
+import type { Endpoints } from '@octokit/types';
 
 // Create an instance of Octokit with my GitHub token
 const octokit: Octokit = new Octokit({
