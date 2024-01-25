@@ -36,7 +36,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
         ...params
       }
     );
-
+    console.log(process.env.GITHUB_ACCESS_TOKEN);
     // Transform the response to only include the data needed for the project cards
     const extractedRepoData: repoData[] = reposResponse.data
       .filter((repo) => repo.name !== 'padas-vue' && !repo.name.includes('DSA'))
@@ -75,7 +75,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
     throw createError({
       statusCode: 500,
       statusMessage:
-        'Internal Server Error, unable to fetch repos from GitHub\n' + err
+        'Internal Server Error, unable to fetch repos from GitHub: ' + err
     });
   }
 });
