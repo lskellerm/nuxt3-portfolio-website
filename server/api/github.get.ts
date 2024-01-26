@@ -1,15 +1,11 @@
 import { Octokit } from 'octokit';
 import type { Endpoints } from '@octokit/types';
 
-// Create an instance of Octokit with my GitHub token
-const octokit: Octokit = new Octokit({
-  auth: process.env.GITHUB_ACCESS_TOKEN
-});
-
 // Get the parameter and response types from the GitHub API
 type getRepoForAuthedUserParams = Endpoints['GET /user/repos']['parameters'];
 type getRepoForAuthedUserResponse = Endpoints['GET /user/repos']['response'];
 
+// Create a type for the data needed for the project cards
 type repoData = {
   name: string;
   description: string | null;
@@ -24,7 +20,15 @@ const params: getRepoForAuthedUserParams = {
   sort: 'created'
 };
 
-export default defineEventHandler(async (): Promise<repoData[]> => {
+export default defineEventHandler(async (event): Promise<repoData[]> => {
+  // Declare and use runtime composable to get the environment variables at runtime
+  const { githubAccessToken } = useRuntimeConfig(event);
+
+  // Create an instance of Octokit with my GitHub token
+  const octokit: Octokit = new Octokit({
+    auth: githubAccessToken
+  });
+
   try {
     // Retrieve the list of repos from the GitHub API
     const reposResponse: getRepoForAuthedUserResponse = await octokit.request(

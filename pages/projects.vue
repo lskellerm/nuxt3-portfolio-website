@@ -16,6 +16,4 @@ useServerSeoMeta({
   ogImage: 'https://luis-kellermann.com/favicon.ico',
   robots: 'index, follow'
 });
-
-console.log(process.env.GITHUB_ACCESS_TOKEN);
 </script>
