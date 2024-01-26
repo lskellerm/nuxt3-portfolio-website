@@ -55,6 +55,7 @@
           </UBadge>
         </div>
         <UButton
+          v-if="props.projectLink"
           size="sm"
           variant="link"
           label="View Code"
@@ -90,7 +91,7 @@ const props = defineProps<{
   projectName: string;
   projectDescription: string | null;
   projectTechStack: (string | null | undefined)[];
-  projectLink: string;
+  projectLink?: string;
   demoLink?: string;
 }>();
 </script>

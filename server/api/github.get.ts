@@ -1,38 +1,37 @@
 import { Octokit } from 'octokit';
 import type { Endpoints } from '@octokit/types';
 
+// Create an instance of Octokit to make requests to the GitHub API
+const octokit: Octokit = new Octokit();
+
 // Get the parameter and response types from the GitHub API
-type getRepoForAuthedUserParams = Endpoints['GET /user/repos']['parameters'];
-type getRepoForAuthedUserResponse = Endpoints['GET /user/repos']['response'];
+type getRepoForUserParams =
+  Endpoints['GET /users/{username}/repos']['parameters'];
+type getRepoForUserResponse =
+  Endpoints['GET /users/{username}/repos']['response'];
 
 // Create a type for the data needed for the project cards
 type repoData = {
   name: string;
   description: string | null;
-  html_url: string;
+  html_url?: string;
   technologies: (string | null | undefined)[];
 };
 
 // Define the parameters for the request
-const params: getRepoForAuthedUserParams = {
-  visibility: 'all',
-  affiliation: 'owner',
+const params: getRepoForUserParams = {
+  username: 'lskellerm',
+  type: 'owner',
   sort: 'created'
 };
 
-export default defineEventHandler(async (event): Promise<repoData[]> => {
+export default defineEventHandler(async (): Promise<repoData[]> => {
   // Declare and use runtime composable to get the environment variables at runtime
-  const { githubAccessToken } = useRuntimeConfig(event);
-
-  // Create an instance of Octokit with my GitHub token
-  const octokit: Octokit = new Octokit({
-    auth: githubAccessToken
-  });
 
   try {
     // Retrieve the list of repos from the GitHub API
-    const reposResponse: getRepoForAuthedUserResponse = await octokit.request(
-      'GET /user/repos',
+    const reposResponse: getRepoForUserResponse = await octokit.request(
+      'GET /users/{username}/repos',
       {
         headers: {
           'X-GitHub-Api-Version': '2022-11-28'
@@ -42,15 +41,17 @@ export default defineEventHandler(async (event): Promise<repoData[]> => {
     );
     // Transform the response to only include the data needed for the project cards
     const extractedRepoData: repoData[] = reposResponse.data
-      .filter((repo) => repo.name !== 'padas-vue' && !repo.name.includes('DSA'))
+      .filter((repo) => !repo.name.includes('DSA'))
       .map((repo) => ({
         name:
-          repo.name === 'padas-flask'
-            ? 'Padas'
-            : repo.name === 'kpi dashboard'
-              ? 'KPI Dashboard'
-              : repo.name.replace(/-/g, ' '),
-        description: repo.description,
+          repo.name === 'kpi dashboard'
+            ? 'KPI Dashboard'
+            : repo.name.replace(/-/g, ' '),
+        description: repo.name.includes('nuxt3-portfolio')
+          ? repo.description +
+            ' (this site), built with Nuxt.js, with the goal of learning Nuxt 3, TypeScript, and TailwindCSS, while showcasing my projcts and skills. ' +
+            'Fully deployed on AWS using Route 53, Amplify, and CloudFront.'
+          : repo.description,
         html_url: repo.html_url,
         technologies: repo.name.includes('Coffee-Supply')
           ? ['PHP', 'MariaDB', 'JavaScript', 'AJAX']
@@ -58,19 +59,28 @@ export default defineEventHandler(async (event): Promise<repoData[]> => {
             ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
             : repo.name.includes('kpi')
               ? ['Java', 'JavaFX', 'SceneBuilder']
-              : repo.name.includes('padas')
-                ? [
-                    'JavaScript',
-                    'Python',
-                    'Flask',
-                    'Vue',
-                    'Vuetify',
-                    'PostgreSQL',
-                    'TailwindCSS',
-                    'AWS'
-                  ]
-                : [repo.language]
+              : [repo.language]
       }));
+
+    // Manually add the Padas repo to the list of repos since it is private and not returned by the GitHub API Endpoint
+    const padasRepoData: repoData = {
+      name: 'Padas',
+      description:
+        'Full-Stack application that allows users and clinicians to streamline the process of building, distributing, and managing psychological assessments. ' +
+        'Deployed on AWS using S3, CloudFront, API Gateway, Lambda, and RDS.',
+      technologies: [
+        'JavaScript',
+        'Python',
+        'Flask',
+        'Vue',
+        'Vuetify',
+        'PostgreSQL',
+        'TailwindCSS',
+        'AWS'
+      ]
+    };
+
+    extractedRepoData.push(padasRepoData);
 
     return extractedRepoData;
   } catch (err) {
