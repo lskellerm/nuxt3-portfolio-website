@@ -5,7 +5,8 @@ export default defineNuxtConfig({
     { path: '~/components/headers' },
     { path: '~/components/base' },
     { path: '~/components/sections' },
-    { path: '~/components/cards' }
+    { path: '~/components/cards' },
+    { path: '~/components/forms' }
   ],
 
   devtools: { enabled: true },
