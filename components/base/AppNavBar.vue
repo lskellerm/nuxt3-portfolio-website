@@ -121,7 +121,7 @@ const links: VerticalNavigationLink[] = [
   },
   {
     label: 'Contact',
-    to: '/#'
+    to: '/contact'
   }
 ];
 </script>

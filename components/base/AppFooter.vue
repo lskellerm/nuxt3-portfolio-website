@@ -154,7 +154,7 @@ const links: { label: string; to: string }[] = [
   },
   {
     label: 'Contact',
-    to: '/#'
+    to: '/contact'
   }
 ];
 </script>
