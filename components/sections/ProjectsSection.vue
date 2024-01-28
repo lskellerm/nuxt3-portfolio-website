@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex flex-col lg:grid grid-cols-2 lg:place-content-center justify-center items-center gap-y-6 2xl:w-1/3 2xl:gap-x-16"
+    class="flex flex-col lg:grid grid-cols-2 lg:place-content-center justify-center items-center gap-y-6 2xl:w-1/2 2xl:gap-x-16"
   >
     <ProjectsCard
       v-for="project in data"
