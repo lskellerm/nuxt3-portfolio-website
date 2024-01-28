@@ -1,16 +1,16 @@
 <template>
   <section
     id="contact-me-form-container"
-    class="flex flex-col justify-center items-center gap-y-6 px-2 py-5 mt-16 bg-secondary-100 w-full"
+    class="flex flex-col lg:flex-row justify-center items-center gap-y-6 px-2 lg:gap-x-5 xl:gap-x-10 py-5 mt-16 w-full xl:w-4/6 bg-secondary-100"
   >
-    <div class="w-full h-1/2 bg-text">
+    <div class="w-full h-1/2 xl:w-1/2 bg-text">
       <div
         class="flex flex-col h-52 justify-center items-center px-5 my-10 gap-y-6"
       >
-        <h1 class="text-background text-3xl font-heading">
+        <h1 class="text-background text-3xl xl:text-4xl font-heading">
           Let's Get in <span class="text-accent">Touch!</span>
         </h1>
-        <p class="text-background text-base font-sans">
+        <p class="text-background text-base font-sans lg:text-lg">
           I’m currently looking for new opportunities. My inbox is alway open!
           Whether you have a question, want to work together, or just want to
           say hi, I’ll make sure to try and get back to you!

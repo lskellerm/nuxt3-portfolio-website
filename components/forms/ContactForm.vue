@@ -1,6 +1,7 @@
 <template>
+  <div class="flex justify-center items-center"></div>
   <UForm
-    class="flex flex-col justify-center items-start p-5 gap-y-5 w-full border"
+    class="flex flex-col justify-center items-start p-5 gap-y-5 w-full xl:w-1/2"
     :state="state"
     :validate="validate"
     @error="onError"
@@ -11,6 +12,7 @@
       size="md"
       name="firstName"
       :ui="{
+        wrapper: 'lg:w-3/4',
         label: {
           base: 'text-text font-sans'
         }
@@ -24,6 +26,7 @@
       size="md"
       name="lastName"
       :ui="{
+        wrapper: 'lg:w-3/4',
         label: {
           base: 'text-text font-sans'
         }
@@ -37,6 +40,7 @@
       size="md"
       name="email"
       :ui="{
+        wrapper: 'lg:w-3/4',
         label: {
           base: 'text-text font-sans'
         }
@@ -53,6 +57,7 @@
       required
       padded
       :ui="{
+        wrapper: 'lg:w-3/4',
         label: {
           base: 'text-text font-sans'
         }
