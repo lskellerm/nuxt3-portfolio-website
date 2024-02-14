@@ -1,10 +1,10 @@
 <template>
-  <div class="flex justify-center items-center"></div>
   <UForm
     class="flex flex-col justify-center items-start p-5 gap-y-5 w-full xl:w-1/2"
     :state="state"
     :validate="validate"
     @error="onError"
+    @submit="onSubmit"
   >
     <UFormGroup
       class="w-full"
@@ -88,9 +88,9 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue';
-import type { FormError, FormErrorEvent } from '#ui/types';
+import type { FormError, FormErrorEvent, FormSubmitEvent } from '#ui/types';
 
-// Define the reactive object to hold the current state of the form
+// Reactvie object which holds the current state of the form
 const state = reactive({
   firstName: undefined,
   lastName: undefined,
@@ -100,7 +100,7 @@ const state = reactive({
 
 const validate = (state: any): FormError[] => {
   /***
-   * Validates the form state and return an array of FormError objects
+   * Validates the form state and returns an array of FormError objects
    * @param {any} state - The current state of the form, a reactive object containing defined form properties
    * @returns {FormError[]} - An array of FormError objects, containing the path of the error and the error message
    */
@@ -141,5 +141,15 @@ async function onError(event: FormErrorEvent) {
   const element = document.getElementById(event.errors[0].id);
   element?.focus();
   element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// eslint-disable-next-line require-await
+async function onSubmit(event: FormSubmitEvent<any>) {
+  /***
+   * Function which listens to the @submit event to handle the form submission.
+   * @param {FormSubmitEvent} event - The formSubmitEvent object emitted when the form is submitted and contains the current state of the form
+   */
+
+  console.log(event.data.message);
 }
 </script>
