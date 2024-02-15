@@ -26,8 +26,11 @@ const params: getRepoForUserParams = {
 };
 
 export default defineEventHandler(async (): Promise<repoData[]> => {
-  // Declare and use runtime composable to get the environment variables at runtime
-
+  /***
+   * Endpoint to fetch the list of repositories for the user from the GitHub API
+   * @returns {Promise<repoData[]>} - The list of repositories for the user'
+   * @throws {Error} - If the request to the GitHub API fails
+   */
   try {
     // Retrieve the list of repos from the GitHub API
     const reposResponse: getRepoForUserResponse = await octokit.request(
