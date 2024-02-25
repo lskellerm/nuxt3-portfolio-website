@@ -33,11 +33,13 @@
     "vue-tsc": "^1.8.27"
   },
   "dependencies": {
+    "@aws-sdk/client-ses": "^3.515.0",
     "@iconify-json/fa6-brands": "^1.1.18",
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/mingcute": "^1.1.14",
     "@nuxt/image": "^1.1.0",
     "@nuxt/ui": "^2.11.1",
+    "@vue-email/nuxt": "^0.8.13",
     "octokit": "^3.1.2",
     "vue-typewriter-effect": "^1.0.1"
   }

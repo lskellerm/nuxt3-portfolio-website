@@ -15,8 +15,12 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxtjs/google-fonts',
     '@nuxt/image',
-    'nuxt-aos'
+    'nuxt-aos',
+    '@vue-email/nuxt'
   ],
+  vueEmail: {
+    autoImport: true
+  },
   typescript: {
     strict: true
   },
