@@ -1,4 +1,5 @@
 import { SES } from '@aws-sdk/client-ses';
+import { sanitizeInput, validateInput } from '../utils/validation';
 import { useCompiler } from '#vue-email';
 
 // Create config object for SES
@@ -22,15 +23,31 @@ export default defineEventHandler(
     // Read the body of the request
     const body = await readBody(event);
 
-    // Parse the body of the request for the specific email data from client form
-    const { firstName, lastName, email, message } = body;
+    // Parse the and sanitize the body of the request
+    const sanitizedData = {
+      firstName: sanitizeInput(body.firstName),
+      lastName: sanitizeInput(body.lastName),
+      email: sanitizeInput(body.email),
+      message: sanitizeInput(body.message)
+    };
+
+    const errors = validateInput(sanitizedData);
+
+    if (errors.length > 0) {
+      throw createError({
+        statusCode: 422,
+        statusMessage:
+          'The server was unable to process the email request, please ensure you enter valid data',
+        data: errors
+      });
+    }
 
     const template = await useCompiler('ContactEmail.vue', {
       props: {
         name: 'Luis',
-        sender: `${firstName} ${lastName}`,
-        email,
-        message
+        sender: `${sanitizedData.firstName} ${sanitizedData.lastName}`,
+        email: sanitizedData.email,
+        message: sanitizedData.message
       }
     });
 
@@ -49,7 +66,7 @@ export default defineEventHandler(
         },
         Subject: {
           Charset: 'UTF-8',
-          Data: `Contact Form Submission from ${email}`
+          Data: `Contact Form Submission from ${sanitizedData.email}`
         }
       }
     };
@@ -58,7 +75,7 @@ export default defineEventHandler(
       // Attempt to send the email using the AWS SES API
       await ses.sendEmail(params);
       return {
-        message: `Hi ${firstName}, thanks for reaching out! I will get back to you soon!`
+        message: `Hi ${sanitizedData.firstName}, thanks for reaching out! I will get back to you soon!`
       };
     } catch (error) {
       throw createError({
