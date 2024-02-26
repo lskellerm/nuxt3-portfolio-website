@@ -3,7 +3,6 @@
     class="flex flex-col justify-center items-start p-5 gap-y-5 w-full xl:w-1/2"
     :state="state"
     :validate="validate"
-    @error="onError"
     @submit="onSubmit"
   >
     <UFormGroup
@@ -66,6 +65,7 @@
       <UTextarea v-model="state.message" placeholder="Your message here..." />
     </UFormGroup>
     <UButton
+      v-if="!isSubmitting"
       type="submit"
       variant="solid"
       color="accent"
@@ -83,73 +83,111 @@
         <UIcon name="i-mingcute-mail-fill" class="w-6 h-6 bg-text" />
       </template>
     </UButton>
+    <UButton
+      v-else
+      variant="solid"
+      color="accent"
+      size="xl"
+      label="Send"
+      padded
+      loading
+      :ui="{
+        font: 'font-sans font-semibold',
+        variant: {
+          solid: 'text-text'
+        }
+      }"
+    >
+    </UButton>
   </UForm>
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue';
-import type { FormError, FormErrorEvent, FormSubmitEvent } from '#ui/types';
+import type { FormError, FormSubmitEvent } from '#ui/types';
 
-// Reactvie object which holds the current state of the form
-const state = reactive({
+// Define the type for the form state properties
+interface FormState {
+  firstName: string | undefined;
+  lastName: string | undefined;
+  email: string | undefined;
+  message: string | undefined;
+}
+
+// Reactive object which will hold the current state of the form
+const state = reactive<FormState>({
   firstName: undefined,
   lastName: undefined,
   email: undefined,
   message: undefined
 });
 
-const validate = (state: any): FormError[] => {
+// Reactive state to track if the form is currently being submitted
+const isSubmitting = ref(false);
+
+// Define toast composable used for form submissions status notifications
+const toast = useToast();
+
+const validate = (state: FormState): FormError[] => {
   /***
-   * Validates the form state and returns an array of FormError objects
-   * @param {any} state - The current state of the form, a reactive object containing defined form properties
-   * @returns {FormError[]} - An array of FormError objects, containing the path of the error and the error message
+   * Takes the current form's state and returns an array of FormErrors if any errors are found
+   * @param {FormState} state - The current state of the form, The current state of the form, a reactive object containing defined form properties
+   * @returns {FormErrors[]} - An array of FormErrors, an array of objects containing the path to the form element matching the form name and the error message to display
    */
+
   const errors: FormError[] = [];
-  if (!state.firstName) {
-    errors.push({
-      path: 'firstName',
-      message: 'First name is required, please provide a first name'
-    });
-  }
-  if (!state.lastName) {
-    errors.push({
-      path: 'lastName',
-      message: 'Last name is required, please provide a last name'
-    });
-  }
-  if (!state.email) {
-    errors.push({
-      path: 'email',
-      message: 'Email is required, please provide an email'
-    });
-  }
-  if (!state.message) {
-    errors.push({
-      path: 'message',
-      message: 'Message is required, please provide a message for the email'
-    });
-  }
+
+  // Check if all form fields are filled
+  if (!state.firstName)
+    errors.push({ path: 'firstName', message: 'First name is required' });
+
+  if (!state.lastName)
+    errors.push({ path: 'lastName', message: 'Last name is required' });
+
+  if (!state.email)
+    errors.push({ path: 'email', message: 'Email is required' });
+
+  if (!state.message)
+    errors.push({ path: 'message', message: 'Message is required' });
+
   return errors;
 };
 
-// eslint-disable-next-line require-await
-async function onError(event: FormErrorEvent) {
-  /***
-   * Function which listens to the @error event to handle the errors emitted by the contact Form.
-   * @param {FormErrorEvent} event - The formErrorEvent object emitted when the form is validated and contains an array of FormError objects
-   */
-  const element = document.getElementById(event.errors[0].id);
-  element?.focus();
-  element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-
-// eslint-disable-next-line require-await
 async function onSubmit(event: FormSubmitEvent<any>) {
   /***
-   * Function which listens to the @submit event to handle the form submission.
+   * Handles the contact form submission event
    * @param {FormSubmitEvent} event - The formSubmitEvent object emitted when the form is submitted and contains the current state of the form
    */
 
-  console.log(event.data.message);
+  // Set the isSubmitting state to true to show the loading spinner and disable the submit button
+  isSubmitting.value = true;
+
+  //  Send the form data to the server
+  try {
+    const response = await $fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(event.data)
+    });
+
+    if (response.message) {
+      // Display a success toast notification
+      toast.add({
+        title: 'Email Sent Successfully',
+        description: response.message
+      });
+    }
+  } catch (error: any) {
+    // Display an error toast notification
+    toast.add({
+      title: 'Error Sending Email',
+      description: error.statusMessage,
+      color: 'red'
+    });
+  } finally {
+    // Set the isSubmitting state to false to hide the loading spinner and enable the submit button
+    isSubmitting.value = false;
+  }
 }
 </script>
