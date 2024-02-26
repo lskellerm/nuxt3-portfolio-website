@@ -18,7 +18,14 @@ designed to showcase my skills and projects as a Software Engineer.
 - Iconify
 - Vue-Typewriter-Effect
 - Dev Containers
+- Vue-Email
 - OcktoKit
+- AWS SES SDK
+
+## Deployment / Hosting
+
+- Hosted on AWS using Route53 & Amplify
+- Email Sending Functionality using AWS SES SDK
 
 ## Build setup
 
