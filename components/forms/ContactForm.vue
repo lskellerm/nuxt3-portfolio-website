@@ -190,9 +190,6 @@ async function onSubmit(event: FormSubmitEvent<any>) {
           message: err.message
         }))
       );
-
-      // console.log(error.data.statusMessage);
-      // console.log(error.data.data);
     } else {
       // Display an error toast notification for generic errors
       toast.add({
@@ -204,6 +201,12 @@ async function onSubmit(event: FormSubmitEvent<any>) {
   } finally {
     // Set the isSubmitting state to false to hide the loading spinner and enable the submit button
     isSubmitting.value = false;
+
+    // Reset the form state
+    state.firstName = undefined;
+    state.lastName = undefined;
+    state.email = undefined;
+    state.message = undefined;
   }
 }
 </script>
