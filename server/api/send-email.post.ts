@@ -36,7 +36,6 @@ export default defineEventHandler(
 
     const turnstileResponse: TurnstileValidationResponse =
       await verifyTurnstileToken(turnstileToken);
-    console.log(turnstileResponse);
 
     if (!turnstileResponse.success) {
       throw createError({
