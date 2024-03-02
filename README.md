@@ -4,8 +4,8 @@
 
 ## Project Description
 
-This project is a personal portfolio website used to gain development exeperience using the Nuxt.js framework, as well as
-designed to showcase my skills and projects as a Software Engineer.
+This project is a personal portfolio website used to gain development exeperience using the Nuxt.js framework, TypeScript, practice deploying Cloud Native
+solutions using AWS, as well as designed to showcase my skills and projects as a Software Engineer.
 
 ## Technologies Used
 
@@ -14,6 +14,7 @@ designed to showcase my skills and projects as a Software Engineer.
 - NuxtUI
 - Nuxt Image
 - Nuxt Aos
+- Nuxt Turnstile
 - TypeScript
 - Iconify
 - Vue-Typewriter-Effect
@@ -26,6 +27,7 @@ designed to showcase my skills and projects as a Software Engineer.
 
 - Hosted on AWS using Route53 & Amplify
 - Email Sending Functionality using AWS SES SDK
+- Cloudflare Turnstile to issue Challenges in front of Contact Form
 
 ## Build setup
 
