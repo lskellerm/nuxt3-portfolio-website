@@ -1,4 +1,5 @@
 import { SES } from '@aws-sdk/client-ses';
+import { TurnstileValidationResponse } from '@nuxtjs/turnstile/dist/runtime/types';
 import { sanitizeInput, validateInput } from '../utils/validation';
 import { useCompiler } from '#vue-email';
 
@@ -22,6 +23,27 @@ export default defineEventHandler(
 
     // Read the body of the request
     const body = await readBody(event);
+
+    // Get turnstile token from client needed for validation to Cloudflare verify endpoint
+    const turnstileToken: string = body.token;
+
+    if (!turnstileToken) {
+      throw createError({
+        statusCode: 422,
+        statusMessage: 'Token Not provided'
+      });
+    }
+
+    const turnstileResponse: TurnstileValidationResponse =
+      await verifyTurnstileToken(turnstileToken);
+    console.log(turnstileResponse);
+
+    if (!turnstileResponse.success) {
+      throw createError({
+        statusCode: 422,
+        statusMessage: 'Token validation failed'
+      });
+    }
 
     // Parse the and sanitize the body of the request
     const sanitizedData = {
