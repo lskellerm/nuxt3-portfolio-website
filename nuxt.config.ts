@@ -16,8 +16,12 @@ export default defineNuxtConfig({
     '@nuxtjs/google-fonts',
     '@nuxt/image',
     'nuxt-aos',
-    '@vue-email/nuxt'
+    '@vue-email/nuxt',
+    '@nuxtjs/turnstile'
   ],
+  turnstile: {
+    siteKey: '0x4AAAAAAAS0Q9wK8FOqKxCF'
+  },
   vueEmail: {
     autoImport: true
   },
@@ -48,6 +52,11 @@ export default defineNuxtConfig({
       xl: 1280,
       xxl: 1536,
       '2xl': 1536
+    }
+  },
+  runtimeConfig: {
+    turnstile: {
+      secretKey: process.env.NUXT_TURNSTILE_SECRET_KEY
     }
   }
 });
