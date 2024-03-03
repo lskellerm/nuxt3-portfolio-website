@@ -17,10 +17,19 @@ export default defineNuxtConfig({
     '@nuxt/image',
     'nuxt-aos',
     '@vue-email/nuxt',
-    '@nuxtjs/turnstile'
+    '@nuxtjs/turnstile',
+    'nuxt-rate-limit'
   ],
   turnstile: {
     siteKey: '0x4AAAAAAAS0Q9wK8FOqKxCF'
+  },
+  nuxtRateLimit: {
+    routes: {
+      '/api/send-email': {
+        maxRequests: 2,
+        intervalSeconds: 86400
+      }
+    }
   },
   vueEmail: {
     autoImport: true
