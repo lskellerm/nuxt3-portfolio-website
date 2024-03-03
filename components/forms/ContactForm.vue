@@ -209,6 +209,14 @@ async function handleSubmit(event: FormSubmitEvent<any>) {
           }))
         );
       }
+    } else if (error.statusCode === 429) {
+      // Catch errors related to endpoint rate limiting
+      toast.add({
+        title: 'Maximum Emails Sent',
+        description:
+          'Rate limit exceeded, you have reached the maximum number of emails that can be sent in a day, please try again in 24 hours',
+        color: 'red'
+      });
     } else {
       // Display an error toast notification for generic errors
       toast.add({
