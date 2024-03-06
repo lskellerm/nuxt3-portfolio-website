@@ -36,7 +36,7 @@
         to="/about"
         size="xl"
         :ui="{
-          strateg: 'override',
+          strategy: 'override',
           font: 'font-sans uppercase tracking-wider',
           padding: {
             xl: 'px-4 py-3.5'
