@@ -61,6 +61,7 @@
           v-for="(link, index) in links"
           :key="index"
           :to="link.to"
+          active-class="text-accent font-bold border-current"
           class="p-2 rounded text-lg font-heading font-semibold hover:text-text hover:bg-accent text-center tracking-wider uppercase"
           >{{ link.label }}
         </nuxt-link>
@@ -81,8 +82,9 @@
             rounded: 'rounded-none',
             base: 'flex flex-col items-start shrink-0 ml-2 bg-text',
             padding: 'px-6 py-5',
-            font: 'text-lg text-background font-medium font-heading tracking uppercase',
-            active: 'border-current',
+            font: 'text-lg font-heading tracking uppercase',
+            active: 'text-accent font-bold border-current',
+            inactive: 'text-background font-medium border-transparent',
             size: 'text-xl'
           }"
           @click="toggleMenu"
