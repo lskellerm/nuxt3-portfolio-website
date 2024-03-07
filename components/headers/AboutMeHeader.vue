@@ -12,7 +12,12 @@
         <p class="font-sans text-md lg:text-xl">
           Hi there! Welcome to my portfolio website! <br />
           I’m a Software Engineer with a Bachelor’s of Science in Computer
-          Science with a concentration in Systems from UNCW. <br /><br />
+          Science with a concentration in Systems from
+          <a
+            href="https://uncw.edu/"
+            class="font-sans font-semibold text-primaryColor underline"
+            >UNCW</a
+          >. <br /><br />
           I’m a dedicated and passionate learner, always welcoming the challenge
           of learning new things. I have a strong interest in solving
           complex-problems with technology and through buidling software
