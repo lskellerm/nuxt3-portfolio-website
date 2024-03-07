@@ -50,7 +50,7 @@
         <UIcon
           name="i-mingcute-menu-fill"
           class="mr-4 lg:hidden w-8 h-8 bg-text self-center"
-          @click="toggleMenu"
+          @click="toggleMenu($event)"
         />
       </div>
       <div
@@ -70,6 +70,7 @@
     <transition name="slide-over">
       <div
         v-show="isMenuOpen"
+        id="mobileMenu"
         class="w-3/4 absolute h-full end-0 z-50 lg:hidden"
       >
         <LazyUVerticalNavigation
@@ -95,11 +96,28 @@ import type { VerticalNavigationLink } from '@nuxt/ui/dist/runtime/types';
 
 const isMenuOpen: Ref<boolean> = ref(false); // Reactive state for toggling menu on mobile
 
-const toggleMenu = () => {
+const toggleMenu = (event: MouseEvent) => {
   /***
    * Event handler for toggling menu on mobile
+   *
+   * @param {MouseEvent} event - The event object that triggered the function
    */
+  if (event) {
+    event.stopPropagation(); // Prevents the event from bubbling up the DOM tree, needed to prevent the document click event from firing which is used to close the mobile menu
+  }
   isMenuOpen.value = !isMenuOpen.value;
+};
+
+const handleOutsideMenuClick = (event: MouseEvent) => {
+  /***
+   * Event handler for closing the mobile menu when clicking outside of it
+   *
+   * @param {MouseEvent} event - The event object that triggered the function
+   */
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (mobileMenu && !mobileMenu.contains(event.target as Node)) {
+    isMenuOpen.value = false;
+  }
 };
 
 const links: VerticalNavigationLink[] = [
@@ -124,6 +142,14 @@ const links: VerticalNavigationLink[] = [
     to: '/contact'
   }
 ];
+
+onMounted(() => {
+  document.addEventListener('click', handleOutsideMenuClick);
+});
+
+onUnmounted(() => {
+  document.addEventListener('click', handleOutsideMenuClick);
+});
 </script>
 
 <style scoped>
