@@ -20,6 +20,16 @@ export default defineNuxtConfig({
     '@nuxtjs/turnstile',
     'nuxt-rate-limit'
   ],
+  app: {
+    pageTransition: {
+      name: 'page-slide',
+      mode: 'out-in'
+    },
+    layoutTransition: {
+      name: 'layout-fade',
+      mode: 'out-in'
+    }
+  },
   turnstile: {
     siteKey: '0x4AAAAAAAS0Q9wK8FOqKxCF'
   },

@@ -7,7 +7,10 @@
 </template>
 <script setup lang="ts">
 definePageMeta({
-  layout: false
+  layout: false,
+  layoutTransition: {
+    name: 'layout-fade'
+  }
 });
 
 useServerSeoMeta({
