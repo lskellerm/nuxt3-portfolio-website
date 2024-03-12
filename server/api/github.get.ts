@@ -44,7 +44,9 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
     );
     // Transform the response to only include the data needed for the project cards
     const extractedRepoData: repoData[] = reposResponse.data
-      .filter((repo) => !repo.name.includes('DSA'))
+      .filter(
+        (repo) => !repo.name.includes('DSA') && !repo.name.includes('QRafty')
+      )
       .map((repo) => ({
         name:
           repo.name === 'kpi dashboard'
