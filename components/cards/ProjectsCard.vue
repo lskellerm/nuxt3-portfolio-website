@@ -6,6 +6,7 @@
         strategy: 'override',
         base: 'flex flex-col justfify-center items-center p-5 border-2 border-secondary w-96 h-80 lg:w-3/4 2xl:w-full',
         background: 'bg-secondary-100',
+        divide: '',
         header: {
           base: 'flex flex-col jusfify-center items-center w-full mb-2',
           padding: 'px-0 py-0'
