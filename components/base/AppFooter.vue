@@ -15,7 +15,7 @@
         }"
       />
       <div
-        class="flex justify-center items-center p-2 lg:px-16 gap-x-4 md:gap-x-20 lg:gap-x-20 2xl:gap-x-96"
+        class="flex justify-center items-center p-2 lg:px-16 gap-x-4 md:gap-x-20"
       >
         <NuxtLink to="/">
           <svg
