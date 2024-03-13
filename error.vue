@@ -1,8 +1,8 @@
 <template>
   <div class="w-full">
     <NuxtLayout name="errors">
-      <div class="p-5 mt-12 flex justify-start items-center">
-        <div class="mt-7 mr-7">
+      <div class="p-5 pb-0 mt-5 lg:mt-12 flex justify-start items-center">
+        <div class="mt-2 lg:mt-7 mr-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="31"
@@ -50,7 +50,9 @@
         </svg>
       </div>
       <div class="flex flex-col justify-center items-center gap-y-10 px-2">
-        <div class="flex flex-col justify-center items-center gap-y-5 mt-16">
+        <div
+          class="flex flex-col justify-center items-center gap-y-5 mt-0 lg:mt-16"
+        >
           <h1 class="font-heading text-9xl font-bold text-text">
             {{ error.statusCode }}
           </h1>
