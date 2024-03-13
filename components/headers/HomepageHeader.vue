@@ -10,7 +10,7 @@
       sizes="397px lg:609px"
     /> -->
     <img
-      src="public/graduation-photo.jpg"
+      src="/graduation-photo.jpg"
       alt="Graduation Photo"
       class="rounded-full"
       width="397"
