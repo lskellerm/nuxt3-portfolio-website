@@ -81,7 +81,7 @@
               >
                 <UIcon
                   name="i-fa6-brands-linkedin"
-                  class="w-7 h-7 lg:w-10 lg:h-10 bg-background"
+                  class="w-5 h-5 lg:w-10 lg:h-10 bg-background"
                 />
               </div>
             </a>
@@ -108,7 +108,7 @@
               >
                 <UIcon
                   name="i-fa6-brands-github"
-                  class="w-7 h-7 lg:w-10 lg:h-10 bg-background"
+                  class="w-5 h-5 lg:w-10 lg:h-10 bg-background"
                 />
               </div>
             </a>
