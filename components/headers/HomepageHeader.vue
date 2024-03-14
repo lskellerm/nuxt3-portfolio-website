@@ -2,20 +2,21 @@
   <header
     class="flex flex-col lg:flex-row-reverse justify-center items-center gap-8 mt-5 p-6 lg:p-16"
   >
-    <!-- <NuxtImg
+    <NuxtImg
       src="/graduation-photo.jpg"
       alt="Graduation Photo"
       quality="100"
       class="rounded-full"
       sizes="397px lg:609px"
-    /> -->
-    <img
+      placeholder
+    />
+    <!-- <img
       src="/graduation-photo.jpg"
       alt="Graduation Photo"
       class="rounded-full"
       width="397"
       height="397"
-    />
+    /> -->
     <div
       class="flex flex-col justify-center items-center lg:items-start gap-y-6 w-full xl:w-1/2 2xl:w-1/4"
     >
