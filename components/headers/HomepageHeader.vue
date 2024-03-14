@@ -8,7 +8,7 @@
       quality="100"
       class="rounded-full"
       sizes="397px lg:609px"
-      :placeholder="397"
+      :placeholder="[397, 527, 100]"
     />
     <div
       class="flex flex-col justify-center items-center lg:items-start gap-y-6 w-full xl:w-1/2 2xl:w-1/4"
