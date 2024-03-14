@@ -7,6 +7,7 @@
       quality="100"
       class="rounded-full lg:p-10 mb-20 lg:mt-5 2xl:basis-1/4"
       sizes="400 lg:625px"
+      :placeholder="400"
     />
   </div>
 </template>
