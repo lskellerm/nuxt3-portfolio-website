@@ -8,7 +8,7 @@
       quality="100"
       class="rounded-full"
       sizes="397px lg:609px"
-      placeholder
+      :placeholder="[397, 397]"
     />
     <!-- <img
       src="/graduation-photo.jpg"
