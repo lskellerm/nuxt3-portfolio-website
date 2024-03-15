@@ -22,7 +22,8 @@ type repoData = {
 const params: getRepoForUserParams = {
   username: 'lskellerm',
   type: 'owner',
-  sort: 'created'
+  sort: 'updated',
+  direction: 'desc'
 };
 
 export default defineEventHandler(async (): Promise<repoData[]> => {
@@ -42,6 +43,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
         ...params
       }
     );
+
     // Transform the response to only include the data needed for the project cards
     const extractedRepoData: repoData[] = reposResponse.data
       .filter(
@@ -54,14 +56,14 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
             : repo.name.replace(/-/g, ' '),
         description: repo.name.includes('nuxt3-portfolio')
           ? repo.description +
-            ' (this site), built with Nuxt.js, with the goal of learning Nuxt 3, TypeScript, and TailwindCSS, while showcasing my projcts and skills. ' +
+            ' (this site), built using Nuxt.js, NuxtUI, TypeScript, and TailwindCSS, with the goal of showcasing my projcts and skills. ' +
             'Fully deployed on AWS using Route 53, Amplify, and CloudFront.'
           : repo.description,
         html_url: repo.html_url,
         technologies: repo.name.includes('Coffee-Supply')
           ? ['PHP', 'MariaDB', 'JavaScript', 'AJAX']
           : repo.name.includes('nuxt3-portfolio')
-            ? ['TypeScript', 'Vue', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
+            ? ['TypeScript', 'Nuxt', 'Vue', 'TailwindCSS', 'AWS ']
             : repo.name.includes('kpi')
               ? ['Java', 'JavaFX', 'SceneBuilder']
               : [repo.language]
@@ -85,7 +87,7 @@ export default defineEventHandler(async (): Promise<repoData[]> => {
       ]
     };
 
-    extractedRepoData.push(padasRepoData);
+    extractedRepoData.splice(1, 0, padasRepoData);
 
     return extractedRepoData;
   } catch (err) {
